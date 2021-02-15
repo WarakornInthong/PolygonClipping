@@ -215,8 +215,10 @@ const PolygonClipping = ( { pointList,saveCPoints } ) =>{
     // input-> mode:รูปแบบ, points:จุดทั้งหมด
     function checkAllEdge(mode, points){
         for(let i = 1 ; i < points.length ; i++){
-            checkEdge(mode, points[i-1], points[i], 10)
+            if(points.length > 1)
+                checkEdge(mode, points[i-1], points[i], 10)
         }
+        if(points.length > 1)
         checkEdge(mode, points[points.length-1], points[0], 10)
     }
     
